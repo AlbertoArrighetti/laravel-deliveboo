@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
             'restaurant_name' => $request->restaurant_name,
             'address' => $request->address,
             'image' => $request->image,
-            'user_id' => $user->id, // Assicurati di associare l'utente al ristorante
+            'user_id' => $user->id, 
         ]);
 
         event(new Registered($user, $restaurant));
@@ -61,6 +61,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         // Reindirizza alla vista del ristorante con i dati del ristorante
-        return redirect()->route('admin.index', ['restaurant' => $restaurant->id]);
+        return redirect()->route('admin.index' ,compact('restaurant', 'user'));
     }
 }
