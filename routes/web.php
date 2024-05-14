@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -32,4 +28,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // rotta amministrazione
-Route::get('/admin', [DashboardController::class, 'index']);
+Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function() {
+    // prima pagina con le info del ristorante
+    Route::get('/', [DashboardController::class, 'index']);
+});
