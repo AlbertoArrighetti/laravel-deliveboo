@@ -13,5 +13,10 @@ class Restaurant extends Model
         'restaurant_name',
         'address',
         'image',
+        'user_id',
     ];
+
+    public function users() {
+        return $this->belongsTo(User::class);
+    }
 }

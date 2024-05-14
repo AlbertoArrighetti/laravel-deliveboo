@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>
-            Ristorante
+            {{$user->name}}
         </h1>
     </div>
 @endsection

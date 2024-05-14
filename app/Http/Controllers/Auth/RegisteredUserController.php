@@ -59,9 +59,14 @@ class RegisteredUserController extends Controller
             'image' => $request->image,
         ]);
 
+
+        $restaurant->user_id = $user->id;
+
+        
+
         event(new Registered($user, $restaurant));
 
-        Auth::login($user, $restaurant);
+        Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }
