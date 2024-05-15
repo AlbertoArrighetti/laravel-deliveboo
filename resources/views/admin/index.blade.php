@@ -10,19 +10,27 @@
             il tuo ristorante:
         </h2>
 
-        <h2>
-            {{$restaurant->address}}
-        </h2>
+        <div class="px-3 mb-3">
 
-        <h2>
-            {{$restaurant->image}}
-        </h2>
-
-        <div class="px-3 mb-4">
-            
+            <h4>
+                Nome: 
+                {{$restaurant->restaurant_name}}
+            </h4>
+    
+            <h4>
+                Indirizzo: 
+                {{$restaurant->address}}
+            </h4>
+    
+            <h4>
+                Immagine:
+                {{$restaurant->image}}
+            </h4>
+                
             @foreach($restaurant->types as $type)
-            {{$type->name}}
+            <span class="badge rounded-pill text-bg-primary">{{$type->name}}</span>
             @endforeach
+
         </div>
        
        
