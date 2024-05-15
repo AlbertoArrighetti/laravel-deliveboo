@@ -14,8 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             DishSeeder::class,
-        ]);
-        $this->call([
             TypeSeeder::class,
         ]);
     }
