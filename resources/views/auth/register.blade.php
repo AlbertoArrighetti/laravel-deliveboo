@@ -118,7 +118,7 @@
 
                         {{-- restaurant_name --}}
                         <div class="mb-4 row ">
-                            <label for="restaurant_name" class="col-md-3 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            <label for="restaurant_name" class="col-md-3 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
 
                             <div class="col-md-6">
                                 <input id="restaurant_name" type="text" class="form-control @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required autocomplete="restaurant_name" autofocus>
