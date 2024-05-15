@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -47,7 +48,7 @@ class RegisteredUserController extends Controller
 
             'restaurant_name' => ['required', 'max:255', 'string'],
             'address' => ['required', 'max:255', 'string'],
-            'image' => ['nullable', 'string', 'max:255'],
+            'image' => ['nullable', 'file', 'max:1024', 'mimes:jpg,png,bpm'],
         ], 
         [
             'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
@@ -87,6 +88,13 @@ class RegisteredUserController extends Controller
             'image' => $request->image,
             'user_id' => $user->id,
         ]);
+
+        if ($request->hasFile('image')) {
+
+            $path = Storage::disk('public')->put('restaurant_images', $request->image);
+
+            $restaurant->image = $path;
+        };
 
         $restaurant->types()->attach($request->types);
 
