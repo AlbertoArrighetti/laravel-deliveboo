@@ -13,7 +13,25 @@
         @endif --}}
 
         {{-- description --}}
+
         <p>{{$dish->description}}</p>
+
+        <p>
+            prezzo:
+            {{$dish->price}}
+            €
+        </p>
+
+        <p>{{$dish->image}}</p>
+
+        <p>
+            il piatto è nel menu?
+            @if($dish->viewable == 1)
+            si
+            @else
+            no
+            @endif
+        </p>
 
         <div class="my-4">
 
