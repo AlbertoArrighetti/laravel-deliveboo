@@ -34,8 +34,10 @@ class DishController extends Controller
     {
         $request->validated();   
         $newDish = new Dish();
-
+        
         $newDish->fill($request->all());
+        $newDish->restaurant_id = auth()->user()->restaurant->id;
+        
         $newDish->save();
 
         return redirect()->route('admin.dishes.index');

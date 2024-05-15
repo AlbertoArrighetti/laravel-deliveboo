@@ -9,7 +9,7 @@ class Dish extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'price', 'viewable', 'image', 'restaurant_id'];
+    protected $fillable = ['name', 'description', 'price', 'viewable', 'image'];
 
     // foreign
     public function restaurants() {
