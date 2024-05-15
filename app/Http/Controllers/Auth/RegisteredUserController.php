@@ -61,6 +61,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         // Reindirizza alla vista del ristorante con i dati del ristorante
-        return redirect()->route('admin.index' ,compact('restaurant', 'user'));
+        return redirect(RouteServiceProvider::HOME);
     }
 }
