@@ -10,6 +10,17 @@
             il tuo ristorante:
         </h2>
 
+        <h2>
+            {{$restaurant->address}}
+        </h2>
+
+        <h2>
+            {{$restaurant->image}}
+        </h2>
+
+        <a href="{{route('admin.dishes.index')}}">
+            Visualizza il tuo menù
+        </a>
         <div class="px-3">
 
             <h4>

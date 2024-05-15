@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\DishController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,7 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function() {
     // prima pagina con le info del ristorante
     Route::get('/', [DashboardController::class, 'index']);
+
+    // dishes
+    Route::resource('dishes', DishController::class);
 });
