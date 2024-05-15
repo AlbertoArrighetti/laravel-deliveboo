@@ -18,15 +18,15 @@
         <div class="my-4">
 
             {{-- edit --}}
-            {{-- <a class="btn btn-secondary" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a> --}}
+            <a class="btn btn-secondary" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
 
             {{-- delete --}}
-            {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                 Elimina
-            </button> --}}
+            </button>
                       
             <!-- delete modal -->
-            {{-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
           
@@ -50,7 +50,7 @@
           
                 </div>
               </div>
-            </div> --}}
+            </div>
 
         </div>
     

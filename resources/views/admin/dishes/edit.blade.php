@@ -4,7 +4,7 @@
 
 <div class="container">
     <h1>Modifica Piatto</h1>
-    <form action="{{ route('dishes.update', $dish->id) }}" method="POST">
+    <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">

@@ -18,26 +18,16 @@
             {{$restaurant->image}}
         </h2>
 
-        <a href="{{route('admin.dishes.index')}}">
-            Visualizza il tuo menù
-        </a>
-        <div class="px-3">
-
-            <h4>
-                {{$restaurant->restaurant_name}}
-            </h4>
-    
-            <h4>
-                {{$restaurant->address}}
-            </h4>
-    
-            <h4>
-                {{$restaurant->image}}
-            </h4>
-
+        <div class="px-3 mb-4">
+            
             @foreach($restaurant->types as $type)
             {{$type->name}}
             @endforeach
         </div>
+       
+       
+        <a href="{{route('admin.dishes.index')}}">
+            Visualizza il tuo menù
+        </a>
     </div>
 @endsection

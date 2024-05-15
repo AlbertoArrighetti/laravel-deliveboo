@@ -4,7 +4,7 @@
     <div class="container py-5 ">
         <h1>Aggiungi un piatto</h1>
 
-        <form action="{{route('admin.dish.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">

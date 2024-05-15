@@ -25,7 +25,7 @@ class StoreDishRequest extends FormRequest
             'name' => 'required|max:255',
             'description' => 'nullable|max:2000',
             'price' => 'required',
-            'viewable' => 'boolean|required',
+            // 'viewable' => 'boolean|required',
             'image' => 'nullable|max:255',
 
             'restaurant_id' => 'nullable|exists:restaurant,id',
