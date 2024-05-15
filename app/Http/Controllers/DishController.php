@@ -13,7 +13,8 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $dishes = Dish::all();
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
