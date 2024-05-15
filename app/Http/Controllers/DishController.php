@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dish;
 use App\Http\Requests\StoreDishRequest;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -34,12 +35,16 @@ class DishController extends Controller
     {
         $validated = $request->validated();
         $newDish = new Dish();
+
+        $path = Storage::disk('public')->put('dish_images', $request->image);
+        
         $newDish->fill($validated);
+        $newDish->image = $path;
         $newDish->restaurant_id = auth()->user()->restaurant->id;
         $newDish->viewable = $request->has('viewable');
         $newDish->save();
 
-        return redirect()->route('admin.dishes.index');
+        return redirect()->route('admin.dishes.show', $newDish->id);
     }
 
     /**
@@ -64,7 +69,9 @@ class DishController extends Controller
     public function update(StoreDishRequest $request, Dish $dish)
     {
         $validated = $request->validated();
+        $path = Storage::disk('public')->put('dish_images', $request->image);
         $dish->fill($validated);
+        $dish->image = $path;
         $dish->viewable = $request->has('viewable');
         $dish->save();
 

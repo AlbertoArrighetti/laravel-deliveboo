@@ -20,8 +20,8 @@
 
             <div class="mb-3">
                 <h3>Immagine del piatto</h3>
-                <label for="preview">Inserisci un'immagine di copertina</label>
-                <input type="file" class="form-control" name="preview">
+                <label for="image">Inserisci un'immagine di copertina</label>
+                <input type="file" class="form-control" name="image">
             </div>
 
             <div class="mb-3">

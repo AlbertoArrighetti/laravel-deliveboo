@@ -7,12 +7,10 @@
         <h2 class="fs-4 text-secondary my-4">{{$dish->name}}</h2>
 
 
-        {{-- image --}}
-        {{-- @if ($dish->image)
-        <img src="{{ asset('storage/' . $dish->image) }}" alt="immagine piatto">
-        @endif --}}
 
-        {{-- description --}}
+        @if ($dish->image)
+        <img src="{{ asset('storage/' . $dish->image) }}" alt="immagine piatto">
+        @endif
 
         <p>{{$dish->description}}</p>
 
@@ -21,8 +19,6 @@
             {{$dish->price}}
             €
         </p>
-
-        <p>{{$dish->image}}</p>
 
         <p>
             il piatto è nel menu?

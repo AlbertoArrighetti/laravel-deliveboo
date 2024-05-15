@@ -4,7 +4,7 @@
 
 <div class="container">
     <h1>Modifica Piatto</h1>
-    <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST">
+    <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -35,13 +35,10 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="image" class="form-label">Immagine</label>
-            <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') ?? $dish->image }}">
-            @error('image')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
+            <h3>Immagine del piatto</h3>
+            <label for="image">Inserisci un'immagine di copertina</label>
+            <input type="file" class="form-control" name="image">
+            <img class="img-fluid py-2" src="{{asset('storage/' . $dish->image)}}">
         </div>
         <div class="mb-3 form-check">
             <input class="form-check-input" type="checkbox" id="viewable" name="viewable" value="1" {{ $dish->viewable ? 'checked' : '' }}>
