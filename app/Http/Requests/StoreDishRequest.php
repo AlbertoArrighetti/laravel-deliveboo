@@ -24,8 +24,8 @@ class StoreDishRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'description' => 'nullable|max:2000',
-            'price' => 'required',
-            // 'viewable' => 'boolean|required',
+            'price' => 'required|size:1000',
+            'viewable' => 'boolean|nullable',
             'image' => 'nullable|max:255',
 
             'restaurant_id' => 'nullable|exists:restaurant,id',
@@ -34,8 +34,9 @@ class StoreDishRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'required' => 'Il campo: :attribute deve essere inserito per proseguire.',
-            'max' => 'Il campo: :attribute deve contenere massimo :max caratteri.',
+            'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
+            'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
+            'size' => 'Il campo ":attribute" deve essere inferiore a :size.'
         ];
     }
     public function attributes(): array
