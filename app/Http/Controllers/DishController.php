@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dish;
+use App\Models\Restaurant;
 use App\Http\Requests\StoreDishRequest;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -12,11 +14,14 @@ class DishController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $restaurant = Restaurant::where('user_id', $user->id)->first();
+
         // Assumendo che ogni utente abbia un ristorante associato
-        $restaurantId = auth()->user()->restaurant->id; 
+        $restaurantId = auth()->user()->restaurant->id;
         $dishes = Dish::where('restaurant_id', $restaurantId)->get();
 
-        return view('admin.dishes.index', compact('dishes'));
+        return view('admin.dishes.index', compact('dishes', 'restaurant'));
     }
 
     /**
@@ -32,7 +37,7 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        $request->validated();   
+        $request->validated();
         $newDish = new Dish();
 
         $newDish->fill($request->all());
