@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,17 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $types = [
+            'Italiana',
+            'Cinese',
+            'Giapponese',
+            'Indiana'
+        ];
+
+        foreach($types as $type) {
+            $newType = new Type();
+            $newType->name = $type;
+            $newType->save();
+        }
     }
 }
