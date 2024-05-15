@@ -22,14 +22,14 @@
                 {{$restaurant->address}}
             </h4>
     
-            <h4>
-                Immagine:
-                {{$restaurant->image}}
-            </h4>
-                
-            @foreach($restaurant->types as $type)
-            <span class="badge rounded-pill text-bg-primary">{{$type->name}}</span>
-            @endforeach
+            <img class="mb-2" src="{{'storage/' . $restaurant->image}}" alt="immagine ristorante">
+            
+            <div>
+
+                @foreach($restaurant->types as $type)
+                <span class="badge rounded-pill text-bg-primary">{{$type->name}}</span>
+                @endforeach
+            </div>
 
         </div>
        
