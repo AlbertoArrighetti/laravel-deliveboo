@@ -49,7 +49,7 @@
             <div class="mb-3">
                 <label class="form-label">Disponibile</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="viewable" name="viewable" value="1">
+                    <input class="form-check-input" type="checkbox" id="viewable" name="viewable" value="1" {{ old('viewable') ? 'checked' : '' }}>
                     <label class="form-check-label" for="viewable">
                         Seleziona se il piatto è disponibile
                     </label>

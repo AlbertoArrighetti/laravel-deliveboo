@@ -13,7 +13,7 @@ class DishController extends Controller
     public function index()
     {
         // Assumendo che ogni utente abbia un ristorante associato
-        $restaurantId = auth()->user()->restaurant->id; 
+        $restaurantId = auth()->user()->restaurant->id;
         $dishes = Dish::where('restaurant_id', $restaurantId)->get();
 
         return view('admin.dishes.index', compact('dishes'));
@@ -32,12 +32,11 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        $request->validated();   
+        $validated = $request->validated();
         $newDish = new Dish();
-        
-        $newDish->fill($request->all());
+        $newDish->fill($validated);
         $newDish->restaurant_id = auth()->user()->restaurant->id;
-        
+        $newDish->viewable = $request->has('viewable');
         $newDish->save();
 
         return redirect()->route('admin.dishes.index');
