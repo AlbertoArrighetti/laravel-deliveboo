@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price');
             $table->boolean('viewable');
-            $table->string('image');
+            $table->string('image')->nullable();
 
             $table->timestamps();
         });
