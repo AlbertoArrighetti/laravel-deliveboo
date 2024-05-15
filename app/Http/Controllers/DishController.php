@@ -12,7 +12,10 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
+        // Assumendo che ogni utente abbia un ristorante associato
+        $restaurantId = auth()->user()->restaurant->id; 
+        $dishes = Dish::where('restaurant_id', $restaurantId)->get();
+
         return view('admin.dishes.index', compact('dishes'));
     }
 
