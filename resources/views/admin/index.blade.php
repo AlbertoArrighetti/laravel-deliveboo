@@ -23,6 +23,10 @@
             <h4>
                 {{$restaurant->image}}
             </h4>
+
+            @foreach($restaurant->types as $type)
+            {{$type->name}}
+            @endforeach
         </div>
     </div>
 @endsection
