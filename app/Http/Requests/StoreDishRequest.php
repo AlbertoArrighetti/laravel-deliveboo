@@ -11,7 +11,7 @@ class StoreDishRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,30 @@ class StoreDishRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:255',
+            'description' => 'nullable|max:2000',
+            'price' => 'required',
+            'viewable' => 'boolean|required',
+            'image' => 'nullable|max:255',
+
+            'restaurant_id' => 'nullable|exists:restaurant,id',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'required' => 'Il campo: :attribute deve essere inserito per proseguire.',
+            'max' => 'Il campo: :attribute deve contenere massimo :max caratteri.',
+        ];
+    }
+    public function attributes(): array
+    {
+        return [
+            'name' => 'Nome',
+            'description' => 'Descrizione',
+            'price' => 'Prezzo',
+            'viewable' => 'Disponibilità',
+            'image' => 'Immagine',
         ];
     }
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Dish;
 use App\Http\Requests\StoreDishRequest;
-use App\Http\Requests\UpdateDishRequest;
 
 class DishController extends Controller
 {
@@ -22,7 +21,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dishes.create');
     }
 
     /**
@@ -30,7 +29,13 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        //
+        $request->validated();   
+        $newDish = new Dish();
+
+        $newDish->fill($request->all());
+        $newDish->save();
+
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
@@ -38,7 +43,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
@@ -46,15 +51,20 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDishRequest $request, Dish $dish)
+    public function update(StoreDishRequest $request, Dish $dish)
     {
-        //
+        $request->validated();
+
+        $dish->update($request->all());
+        $dish->save();
+
+        return redirect()->route('admin.dishes.show', $dish);
     }
 
     /**
@@ -62,6 +72,7 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+        return redirect()->route('admin.dishes.index');
     }
 }
