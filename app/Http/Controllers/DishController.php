@@ -68,7 +68,7 @@ class DishController extends Controller
         $dish->viewable = $request->has('viewable');
         $dish->save();
 
-        return redirect()->route('admin.dishes.index');
+        return redirect()->route('admin.dishes.show', compact('dish'));
     }
 
     /**
