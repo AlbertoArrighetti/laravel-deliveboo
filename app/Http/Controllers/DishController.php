@@ -63,12 +63,12 @@ class DishController extends Controller
      */
     public function update(StoreDishRequest $request, Dish $dish)
     {
-        $request->validated();
-
-        $dish->update($request->all());
+        $validated = $request->validated();
+        $dish->fill($validated);
+        $dish->viewable = $request->has('viewable');
         $dish->save();
 
-        return redirect()->route('admin.dishes.show', $dish);
+        return redirect()->route('admin.dishes.index');
     }
 
     /**

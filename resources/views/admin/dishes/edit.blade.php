@@ -44,8 +44,10 @@
             @enderror
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input @error('viewable') is-invalid @enderror" id="viewable" name="viewable" {{ $dish->viewable ? 'checked' : '' }}>
-            <label class="form-check-label" for="viewable">Visibile</label>
+            <input class="form-check-input" type="checkbox" id="viewable" name="viewable" value="1" {{ $dish->viewable ? 'checked' : '' }}>
+            <label class="form-check-label" for="viewable">
+                Seleziona se il piatto è disponibile
+            </label>
             @error('viewable')
             <div class="invalid-feedback">
                 {{ $message }}
