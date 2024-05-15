@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-header">{{ __('Registrati') }}</div>
 
                 <div class="card-body mt-3 mx-4">
@@ -112,7 +112,7 @@
                         </div>
 
 
-                        <h2>
+                        <h2 class="mb-4">
                             Dati ristorante
                         </h2>
 
@@ -158,6 +158,29 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        {{-- restaurant types --}}
+                        <div class="mb-4 row ">
+                            <label for="types" class="col-md-3 col-form-label text-md-right">{{ __('Tipo di cucina') }}</label>
+
+                            <div class="d-flex gap-3">
+                                @foreach($types as $type)
+                                <div class="form-check">
+                                    <input 
+                                    type="checkbox" 
+                                    name="types[]"
+                                    value="{{$type->id}}" 
+                                    class="form-check-input" 
+                                    id="type-{{$type->id}}"
+                                    {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
+                                    > 
+        
+                                    <label for="type-{{$type->id}}" class="form-check-label">{{$type->name}}</label>
+        
+                                </div>
+                                @endforeach
                             </div>
                         </div>
 
