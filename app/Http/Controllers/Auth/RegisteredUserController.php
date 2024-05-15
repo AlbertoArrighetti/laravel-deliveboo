@@ -35,14 +35,42 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
+        $request->validate(
+        [
             'name' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone_number' => ['required', 'min: 8', 'max:10'],
             'vat' => ['required', 'min:11', 'max:11', 'unique:' . User::class],
+
+
+            'restaurant_name' => ['required', 'max:255', 'string'],
+            'address' => ['required', 'max:255', 'string'],
+            'image' => ['nullable', 'string', 'max:255'],
+        ], 
+        [
+            'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
+            'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
+            'min' => 'Il campo: ":attribute" deve contenere minimo :min caratteri.',
+            'unique' => 'Il campo: ":attribute" è già esistente',
+            
+            'email.lowercase' => 'Questo campo deve essere minuscolo.',
+            'email.email' => 'Email non valida.',
+        ],
+        [
+            'name' => 'Nome',
+            'lastname' => 'Cognome',
+            'email' => 'E-Mail',
+            'password' => 'Password',
+            'phone_number' => 'Numero di telefono',
+            'vat' => 'P.IVA',
+
+            'restaurant_name' => 'Nome ristorante',
+            'address' => 'Indirizzo',
+            'image' => 'Immagine',
         ]);
+        
 
         $user = User::create([
             'name' => $request->name,
@@ -70,3 +98,5 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 }
+
+
