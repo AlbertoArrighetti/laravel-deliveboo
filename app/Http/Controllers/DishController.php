@@ -64,6 +64,10 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
+        if ($dish->restaurant_id != auth()->user()->restaurant->id) {
+            abort(403);
+        }
+
         return view('admin.dishes.show', compact('dish'));
     }
 
@@ -80,6 +84,10 @@ class DishController extends Controller
      */
     public function update(StoreDishRequest $request, Dish $dish)
     {
+        if ($dish->restaurant_id != auth()->user()->restaurant->id) {
+            abort(403);
+        }
+
         $validated = $request->validated();
 
         //controllo che l'immagine esista
@@ -103,6 +111,10 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
+        if ($dish->restaurant_id != auth()->user()->restaurant->id) {
+            abort(403);
+        }
+
         $dish->delete();
         return redirect()->route('admin.dishes.index');
     }
