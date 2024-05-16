@@ -8,9 +8,8 @@
 
 
 
-        @if ($dish->image)
+        
         <img src="{{ asset('storage/' . $dish->image) }}" alt="immagine piatto">
-        @endif
 
         <p>{{$dish->description}}</p>
 

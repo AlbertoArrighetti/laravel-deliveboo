@@ -42,10 +42,14 @@ class DishController extends Controller
         $validated = $request->validated();
         $newDish = new Dish();
 
-        $path = Storage::disk('public')->put('dish_images', $request->image);
+        //controllo che l'immagine esista
+        if ($request->hasFile('image')) {
+            $path = Storage::disk('public')->put('dish_images', $request->image);
+            $newDish->image = $path;
+        }
 
         $newDish->fill($validated);
-        $newDish->image = $path;
+
         $newDish->restaurant_id = auth()->user()->restaurant->id;
         $newDish->viewable = $request->has('viewable');
         $newDish->save();
@@ -75,9 +79,17 @@ class DishController extends Controller
     public function update(StoreDishRequest $request, Dish $dish)
     {
         $validated = $request->validated();
-        $path = Storage::disk('public')->put('dish_images', $request->image);
-        $dish->fill($validated);
-        $dish->image = $path;
+
+        //controllo che l'immagine esista
+        if ($request->hasFile('image')) {
+            $path = Storage::disk('public')->put('dish_images', $request->image);
+            $dish->fill($validated);
+
+            $dish->image = $path;
+        }else {
+            $dish->fill($validated);
+        }
+        
         $dish->viewable = $request->has('viewable');
         $dish->save();
 
