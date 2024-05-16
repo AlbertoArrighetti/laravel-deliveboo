@@ -15,7 +15,7 @@ class Dish extends Model
     protected $fillable = ['name', 'description', 'price', 'viewable', 'image'];
 
     // foreign
-    public function restaurants() {
+    public function restaurant() {
         return $this->belongsTo(Restaurant::class);
     }
 
