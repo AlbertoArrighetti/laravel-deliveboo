@@ -28,7 +28,9 @@
         <div class="mb-3">
             <label for="image">Inserisci un'immagine di copertina</label>
             <input type="file" class="form-control" name="image">
+            @if ($dish->image)
             <img class="img-fluid py-2" src="{{asset('storage/' . $dish->image)}}">
+            @endif
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo *</label>
