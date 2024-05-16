@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+use function Laravel\Prompts\password;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -61,7 +63,9 @@ class RegisteredUserController extends Controller
             'email.lowercase' => 'Questo campo deve essere minuscolo.',
             'email.email' => 'Email non valida.',
 
-            'types.required' => 'Seleziona almeno un campo.'
+            'types.required' => 'Seleziona almeno un campo.',
+
+            'password.confirmed' => 'Assicurati che le password inserite siano uguali.',
         ],
         [
             'name' => 'Nome',
