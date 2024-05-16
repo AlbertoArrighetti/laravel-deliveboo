@@ -50,7 +50,17 @@
             </div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+
+        <div class="d-flex justify-content-between ">
+            <div>
+                <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+            </div>
+
+            <div>
+                {{-- go back to the list --}}
+                <a class="btn btn-warning" href="{{route('admin.dishes.show', $dish->id)}}">Annulla</a>
+            </div>
+        </div>
     </form>
 </div>
     

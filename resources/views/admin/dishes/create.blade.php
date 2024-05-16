@@ -52,7 +52,17 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Save</button>
+
+            <div class="d-flex justify-content-between ">
+                <div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                
+                <div>
+                    {{-- go back to the list --}}
+                    <a class="btn btn-warning" href="{{route('admin.dishes.index')}}">Annulla</a>
+                </div>
+            </div>
 
         </form>
     </div>
