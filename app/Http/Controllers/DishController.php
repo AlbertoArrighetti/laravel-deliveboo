@@ -45,10 +45,12 @@ class DishController extends Controller
         //controllo che l'immagine esista
         if ($request->hasFile('image')) {
             $path = Storage::disk('public')->put('dish_images', $request->image);
-            $newDish->image = $path;
-        }
+            $newDish->fill($validated);
 
-        $newDish->fill($validated);
+            $newDish->image = $path;
+        }else {
+            $newDish->fill($validated);
+        }
 
         $newDish->restaurant_id = auth()->user()->restaurant->id;
         $newDish->viewable = $request->has('viewable');
