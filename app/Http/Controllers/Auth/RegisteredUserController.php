@@ -49,6 +49,8 @@ class RegisteredUserController extends Controller
             'restaurant_name' => ['required', 'max:255', 'string'],
             'address' => ['required', 'max:255', 'string'],
             'image' => ['nullable', 'file', 'max:1024', 'mimes:jpg,png,bpm'],
+
+            'types' => ['required'],
         ], 
         [
             'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
@@ -58,6 +60,8 @@ class RegisteredUserController extends Controller
             
             'email.lowercase' => 'Questo campo deve essere minuscolo.',
             'email.email' => 'Email non valida.',
+
+            'types.required' => 'Seleziona almeno un campo.'
         ],
         [
             'name' => 'Nome',
