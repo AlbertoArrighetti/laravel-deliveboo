@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body p-0">
                         {{-- IMAGE --}}
-                        {{-- <img src="{{$restaurant->image}}" class="card-img-top" alt="{{$restaurant->restaurant_name}}"> --}}
+                        <img class="card-img-top" src="{{'storage/' . $restaurant->image}}" alt="{{$restaurant->restaurant_name}}">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">{{$restaurant->address}}</li>
                             <li class="list-group-item">+39 {{$user->phone_number}}</li>
