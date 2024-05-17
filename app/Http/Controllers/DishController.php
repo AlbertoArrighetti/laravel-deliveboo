@@ -76,6 +76,10 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
+        if ($dish->restaurant_id != auth()->user()->restaurant->id) {
+            abort(404);
+        }
+
         return view('admin.dishes.edit', compact('dish'));
     }
 
@@ -84,9 +88,6 @@ class DishController extends Controller
      */
     public function update(StoreDishRequest $request, Dish $dish)
     {
-        if ($dish->restaurant_id != auth()->user()->restaurant->id) {
-            abort(404);
-        }
 
         $validated = $request->validated();
 
