@@ -17,7 +17,11 @@ class TypeSeeder extends Seeder
             'Italiana',
             'Cinese',
             'Giapponese',
-            'Indiana'
+            'Indiana',
+            'Messicana',
+            'Brasiliana',
+            'Libanese',
+            'Greca'
         ];
 
         foreach($types as $type) {
