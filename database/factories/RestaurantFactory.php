@@ -21,7 +21,7 @@ class RestaurantFactory extends Factory
         return [
             'restaurant_name' => $this->faker->company,
             'address' => $this->faker->address,
-            'image' => $this->faker->imageUrl(640, 480, 'food', true),
+            'image' => 'restaurant_images/QrKCbeGltuuX9sPrOli5yFnO7uRlpJC4B5pSpASP.png',
             'user_id' => \App\Models\User::factory()
         ];
     }
