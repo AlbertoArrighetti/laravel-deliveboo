@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container py-5">
     <h1>Modifica Piatto</h1>
     <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
