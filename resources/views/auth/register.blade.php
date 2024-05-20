@@ -164,10 +164,10 @@
                         </div>
 
                         {{-- restaurant types --}}
-                        <div class="mb-5 row ">
+                        <div class="mb-4 row ">
                             <label for="types" class="col-md-3 col-form-label text-md-right">{{ __('Tipo di cucina *') }}</label>
 
-                            <div class="d-flex gap-3 @error('types') is-invalid @enderror">
+                            <div class="d-flex gap-3 flex-wrap  @error('types') is-invalid @enderror">
                                 @foreach($types as $type)
                                 <div class="form-check">
                                     <input 
@@ -193,11 +193,14 @@
 
                         </div>
 
+                        <div class="alert alert-warning" role="alert">
+                            Una volta inseriti, i dati non potranno essere cambiati, vi preghiamo di assicurarvi che siano corretti.
+                        </div>
 
 
                         {{-- submit --}}
                         <div class="mb-4 row  mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Registrati') }}
                                 </button>
