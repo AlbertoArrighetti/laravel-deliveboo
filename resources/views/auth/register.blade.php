@@ -194,7 +194,9 @@
                         </div>
 
                         <div class="alert alert-warning" role="alert">
-                            Una volta inseriti, i dati non potranno essere cambiati, vi preghiamo di assicurarvi che siano corretti.
+                            - I campi cotrassegnati con " * " sono obbligatori
+                            <br>
+                            - Una volta inseriti, i dati non potranno essere cambiati, vi preghiamo di assicurarvi che siano corretti.
                         </div>
 
 
