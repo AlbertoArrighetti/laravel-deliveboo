@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Registrati') }}</div>
 
                 <div class="card-body mt-3 mx-4">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" id="myform">
                         @csrf
 
                         <div class="d-flex justify-content-end mb-4 text-warning ">
@@ -113,7 +113,11 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
+                            <div id="password-error" class="invalid-feedback" style="display: none;">
+                                Le password devono corrispondere.
+                            </div>
                         </div>
+
 
 
                         {{-- DATI RISTORANTE --}}
@@ -195,6 +199,11 @@
                             </span>
                             @enderror
 
+                            <div id="type-error" class="invalid-feedback" style="display: none;">
+                                Seleziona almeno un tipo di cucina.
+                            </div>
+                            
+
                         </div>
 
                         <div class="alert alert-warning" role="alert">
@@ -216,4 +225,39 @@
         </div>
     </div>
 </div>
+
+<script>
+    const form = document.getElementById('myform');
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    let errorDiv = document.getElementById('type-error');
+
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('password-confirm').value;
+    let errorPsw = document.getElementById('password-error');
+
+
+    form.addEventListener('submit', function(event) {
+        let isChecked = false;
+        for (let checkbox of checkboxes) {
+            if (checkbox.checked) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        if (password.length < 8 || password !== confirmPassword) {
+            errorPsw.style.display = 'block'; // Mostra il messaggio di errore
+            event.preventDefault(); // Previene l'invio del modulo
+        }
+
+
+        if (!isChecked) {
+            event.preventDefault(); // Prevent form submission if no checkbox is selected
+            // alert('Please select at least one checkbox.');
+            errorDiv.style.display = 'block';
+        }
+    });
+
+    
+</script>
 @endsection
