@@ -11,6 +11,10 @@
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
+                        <div class="d-flex justify-content-end mb-4 text-warning ">
+                            I campi cotrassegnati con " * " sono obbligatori
+                        </div>
+
                         <h2 class="mb-3">
                             Dati titolare
                         </h2>
@@ -194,9 +198,7 @@
                         </div>
 
                         <div class="alert alert-warning" role="alert">
-                            - I campi cotrassegnati con " * " sono obbligatori
-                            <br>
-                            - Una volta inseriti, i dati non potranno essere cambiati, vi preghiamo di assicurarvi che siano corretti.
+                            Una volta inseriti, i dati non potranno essere cambiati, vi preghiamo di assicurarvi che siano corretti.
                         </div>
 
 

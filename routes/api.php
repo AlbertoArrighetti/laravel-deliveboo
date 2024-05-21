@@ -24,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/restaurants', [RestaurantController::class, 'index']);
 // rotta API per tipologie
 Route::get('/types', [Typecontroller::class, 'index']);
+
+Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
