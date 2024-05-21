@@ -113,8 +113,8 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                            <div id="password-error" class="invalid-feedback" style="display: none;">
-                                Le password devono corrispondere.
+                            <div id="password-error" class="invalid-feedback text-center " style="display: none;">
+                                Assicurati che le password siano uguali
                             </div>
                         </div>
 
@@ -199,7 +199,7 @@
                             </span>
                             @enderror
 
-                            <div id="type-error" class="invalid-feedback" style="display: none;">
+                            <div id="type-error" class="invalid-feedback text-center " style="display: none;">
                                 Seleziona almeno un tipo di cucina.
                             </div>
                             
@@ -228,15 +228,19 @@
 
 <script>
     const form = document.getElementById('myform');
+
     const checkboxes = form.querySelectorAll('input[type="checkbox"]');
     let errorDiv = document.getElementById('type-error');
 
-    let password = document.getElementById('password').value;
-    let confirmPassword = document.getElementById('password-confirm').value;
-    let errorPsw = document.getElementById('password-error');
-
-
+   
     form.addEventListener('submit', function(event) {
+
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('password-confirm').value;
+        let errorPsw = document.getElementById('password-error');
+
+
+        //checkboxes
         let isChecked = false;
         for (let checkbox of checkboxes) {
             if (checkbox.checked) {
@@ -245,19 +249,25 @@
             }
         }
 
-        if (password.length < 8 || password !== confirmPassword) {
-            errorPsw.style.display = 'block'; // Mostra il messaggio di errore
-            event.preventDefault(); // Previene l'invio del modulo
+        if (password !== confirmPassword) {
+            errorPsw.style.display = 'block';
+            event.preventDefault();
+        }else {
+            errorPsw.style.display = 'none';
         }
+
 
 
         if (!isChecked) {
-            event.preventDefault(); // Prevent form submission if no checkbox is selected
-            // alert('Please select at least one checkbox.');
+            event.preventDefault();
             errorDiv.style.display = 'block';
+        }else {
+            errorDiv.style.display = 'none';
         }
+
     });
 
     
 </script>
+
 @endsection
