@@ -8,7 +8,7 @@
             <h2 class="title">Modifica <span class="fw-lighter">{{$dish->name}}</span></h2>
 
             {{-- go back to the dish --}}
-            <a class="btn btn-warning" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i> Annulla</a>
+            <a class="btn btn-outline-secondary" href="{{route('admin.dishes.index')}}">Indietro</a>
         </div>
 
         {{-- form --}}

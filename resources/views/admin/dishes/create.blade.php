@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-5 ">
-        <h1>Aggiungi un piatto</h1>
+<section>
+    <div class="container">
+        <div class="page-title">
+            <h2 class="title">Aggiungi un piatto</h2>
+
+            {{-- go back to the dish --}}
+            <a class="btn btn-outline-secondary" href="{{route('admin.dishes.index')}}">Indietro</a>
+        </div>
 
         <form action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -66,4 +72,5 @@
 
         </form>
     </div>
+</section>
 @endsection
