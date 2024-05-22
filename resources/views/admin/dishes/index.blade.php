@@ -3,8 +3,8 @@
 @section('content')
 <section>
     <div class="container"> 
-        <div class="d-flex justify-content-between">
-            <h2 class="page-title">{{$restaurant->restaurant_name}} <span class="fw-lighter">menù</span></h2>
+        <div class="page-title">
+            <h2 class="title">{{$restaurant->restaurant_name}} <span class="fw-lighter">menù</span></h2>
 
             {{-- add a new dish --}}
             <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>

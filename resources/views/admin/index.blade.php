@@ -3,7 +3,9 @@
 @section('content')
 <section>
     <div class="container">
-        <h2 class="page-title">Ciao {{$user->name}}!</h2>
+        <div class="page-title">
+            <h2 class="title">Ciao {{$user->name}}!</h2>
+        </div>
         <div class="rest-card">
             <div class="rest-card_img">
                 <img src="{{'storage/' . $restaurant->image}}" alt="{{$restaurant->restaurant_name}}">

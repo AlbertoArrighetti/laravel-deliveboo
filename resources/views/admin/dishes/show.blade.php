@@ -3,8 +3,8 @@
 @section('content')
 <section>
     <div class="container">
-        <div class="d-flex justify-content-between">
-            <h2 class="page-title">{{$dish->name}}</h2>
+        <div class="page-title">
+            <h2 class="title">{{$dish->name}}</h2>
 
             {{-- go back to the list --}}
             <a class="btn btn-warning" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i> Torna alla lista</a>
