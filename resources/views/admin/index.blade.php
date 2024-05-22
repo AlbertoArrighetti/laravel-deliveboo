@@ -1,37 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-        <section>
-            <div class="container">
-                <div class="my-4">
-                    <h2 class="fs-4">Ciao {{$user->name}}!</h2>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        <h3 class="card-title mt-2">{{$restaurant->restaurant_name}}</h3>
-                    </div>
-                    <div class="card-body p-0">
-                        {{-- IMAGE --}}
-                        <img class="card-img-top" src="{{'storage/' . $restaurant->image}}" alt="{{$restaurant->restaurant_name}}">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{{$restaurant->address}}</li>
-                            <li class="list-group-item">+39 {{$user->phone_number}}</li>
-                            <li class="list-group-item">P.IVA: {{$user->vat}}</li>
-                            <li class="list-group-item">Cucina: 
-                                @foreach ($restaurant->types as $type)
-                                <div class="badge rounded-pill text-bg-secondary bt-2 mb-3">{{$type->name}}</div>
-                                @endforeach
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <a href="{{route('admin.dishes.index')}}" class="btn btn-warning">Vai al menù</a>
+<section>
+    <div class="container">
+        <h2 class="page-title">Ciao {{$user->name}}!</h2>
+        <div class="rest-card">
+            <div class="rest-card_img">
+                <img src="{{'storage/' . $restaurant->image}}" alt="{{$restaurant->restaurant_name}}">
+            </div>            
+            <div class="rest-card_text">
+                <h3 class="">{{$restaurant->restaurant_name}}</h3>
+                <div class="rest-info">
+                    <p>{{$restaurant->address}}</p>
+                    <p>+39 {{$user->phone_number}}</p>
+                    <p>P.IVA: {{$user->vat}}</p>
+                    <div>Cucina:
+                        @foreach ($restaurant->types as $type)
+                        <div class="badge rounded-pill text-bg-secondary bt-2 mb-3">{{$type->name}}</div>
+                        @endforeach
                     </div>
                 </div>
+                <div class="rest-card_btn">
+                    <a href="{{route('admin.dishes.index')}}" class="btn btn-warning">Menù</a>
+                    <a href="#" class="btn btn-warning">Ordini</a>
+                </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 @endsection
