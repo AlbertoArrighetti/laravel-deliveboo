@@ -21,7 +21,7 @@ class DishController extends Controller
         // Assumendo che ogni utente abbia un ristorante associato
         $restaurantId = auth()->user()->restaurant->id;
         // $restaurantId = auth()->user()->restaurant->id;
-        $dishes = Dish::where('restaurant_id', $restaurantId)->get();
+        $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->get();
 
         return view('admin.dishes.index', compact('dishes', 'restaurant'));
     }
@@ -48,7 +48,7 @@ class DishController extends Controller
             $newDish->fill($validated);
 
             $newDish->image = $path;
-        }else {
+        } else {
             $newDish->fill($validated);
         }
 
@@ -97,10 +97,10 @@ class DishController extends Controller
             $dish->fill($validated);
 
             $dish->image = $path;
-        }else {
+        } else {
             $dish->fill($validated);
         }
-        
+
         $dish->viewable = $request->has('viewable');
         $dish->save();
 
