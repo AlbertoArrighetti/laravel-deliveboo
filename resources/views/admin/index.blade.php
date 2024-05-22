@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="rest-card_btn">
-                    <a href="{{route('admin.dishes.index')}}" class="btn-prim">Menù</a>
+                    <a href="{{route('admin.dishes.index')}}" class="btn btn-warning">Menù</a>
                     <a href="#" class="btn btn-warning">Ordini</a>
                 </div>
             </div>

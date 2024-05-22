@@ -2,41 +2,37 @@
 
 @section('content')
 <section>
-    <div class="container">
-        <div class="d-flex justify-content-between my-4">
-            <h2 class="fs-4">{{$restaurant->restaurant_name}} <span class="fw-lighter">menù</span></h2>
+    <div class="container"> 
+        <div class="d-flex justify-content-between">
+            <h2 class="page-title">{{$restaurant->restaurant_name}} <span class="fw-lighter">menù</span></h2>
 
             {{-- add a new dish --}}
-            <a class="btn btn-warning" href="{{route('admin.dishes.create')}}">Aggiungi</a>
+            <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
         </div>
-    </div>
-</section>
 
-<section>
-    <div class="container">
-        <div class="d-inline-flex">
-            <table class=" manu-table table border">
-                <thead class="table-secondary">
+        <div class="dishes-list">
+            <table class="table table-hover">
+                <thead>
                     <tr>
                     <th scope="col">Piatto</th>
-                    <th scope="col">Prezzo</th>
-                    <th scope="col">Disponibilità</th>
+                    <th scope="col" class="text-center">Prezzo</th>
+                    <th scope="col" class="text-center">Disponibilità</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
-    
+                
                 <tbody>
                     @forelse ($dishes as $dish)
-                        <tr>
+                        <tr class="align-middle">
                             <td>
                                 <a href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
                             </td>
                             
-                            <td>
+                            <td class="text-center">
                                 € {{$dish->price}}
                             </td>
 
-                            <td>
+                            <td class="text-center">
                                 @if ($dish->viewable)
                                 <i class="fa-regular fa-circle-check text-success "></i>
                                 @else
@@ -44,8 +40,8 @@
                                 @endif
                             </td>
 
-                            <td>
-                                <a class="" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
+                            <td class="text-center">
+                                <a class="mod-del" href="{{route('admin.dishes.edit', $dish)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>                 
                         </tr>
                     @empty
@@ -56,6 +52,6 @@
                 </tbody>
             </table>
         </div>
-        </div>
+    </div>
 </section>
 @endsection
