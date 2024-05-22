@@ -1,11 +1,12 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 
-@import "./partials/admin-index";
-@import "./partials/dishes-index";
-
 // bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+@import "./partials/admin-index";
+@import "./partials/dishes-index";
+@import "./partials/dishes-show";
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -49,4 +50,8 @@ body {
 // Sections
 section {
     padding: 28px 10px;
+}
+
+.page-title {
+    @include title-semi;
 }
