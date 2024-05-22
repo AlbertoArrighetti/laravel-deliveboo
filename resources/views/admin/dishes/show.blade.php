@@ -29,15 +29,16 @@
                         @endif
                     </p>
                 </div>
-                <div class="dish-card_btn">
-                    {{-- edit --}}
-                    <a class="btn btn-secondary" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
-                                        
+                <div class="dish-card_btn ">
+                    
                     {{-- delete --}}
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                         Elimina
                     </button>
-
+                    
+                    {{-- edit --}}
+                    <a class="btn btn-secondary" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
+                    
                     <!-- delete modal -->
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">

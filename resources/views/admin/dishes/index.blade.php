@@ -4,10 +4,10 @@
 <section>
     <div class="container"> 
         <div class="page-title">
-            <h2 class="title">{{$restaurant->restaurant_name}} <span class="fw-lighter">menù</span></h2>
+            <h2 class="title">{{$restaurant->restaurant_name}} <p class="fw-lighter">Menù</p></h2>
 
             {{-- add a new dish --}}
-            <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
+            <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"> Aggiungi piatto</i></a>
         </div>
 
         <div class="dishes-list">
@@ -17,7 +17,7 @@
                     <th scope="col">Piatto</th>
                     <th scope="col" class="text-center">Prezzo</th>
                     <th scope="col" class="text-center">Disponibilità</th>
-                    <th scope="col"></th>
+                    <th scope="col" class="text-center">Modifica Piatto</th>
                     </tr>
                 </thead>
                 

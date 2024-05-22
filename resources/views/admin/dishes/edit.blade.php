@@ -5,7 +5,7 @@
     <div class="container">
         
         <div class="page-title">
-            <h2 class="title">Modifica <span class="fw-lighter">{{$dish->name}}</span></h2>
+            <h2 class="title">Modifica piatto</h2>
 
             {{-- go back to the dish --}}
             <a class="btn btn-outline-secondary" href="{{route('admin.dishes.index')}}">Indietro</a>
@@ -56,15 +56,16 @@
                 @enderror
             </div>
     
-            <div class="d-flex justify-content-between ">
-                <div>
-                    <button type="submit" class="btn btn-success">Salva Modifiche</button>
-                </div>
-    
+            <div class="d-flex justify-content-between mt-4 ">
                 <div>
                     {{-- go back to the list --}}
                     <a class="btn btn-warning" href="{{route('admin.dishes.show', $dish->id)}}">Annulla</a>
                 </div>
+
+                <div>
+                    <button type="submit" class="btn btn-success">Salva Modifiche</button>
+                </div>
+    
             </div>
         </form>
     </div>

@@ -59,14 +59,15 @@
             </div>
 
 
-            <div class="d-flex justify-content-between ">
-                <div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
+            <div class="d-flex justify-content-between mt-4">
                 
                 <div>
                     {{-- go back to the list --}}
                     <a class="btn btn-warning" href="{{route('admin.dishes.index')}}">Annulla</a>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Aggiungi il piatto</button>
                 </div>
             </div>
 
