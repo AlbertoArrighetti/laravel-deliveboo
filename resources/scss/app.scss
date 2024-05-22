@@ -37,6 +37,14 @@ img {
     max-width: 100%;
 }
 
+body {
+    background-color: $grey1;
+
+    nav {
+        background-color: $light;
+    }
+}
+
 // Sections
 section {
     padding: 28px 10px;
