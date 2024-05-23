@@ -38,6 +38,8 @@ class StoreDishRequest extends FormRequest
             'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
             'size' => 'Il campo ":attribute" deve essere inferiore a :size.',
 
+            'image.mimes' => "Il formato dell'immagine non è supportato, inserisci un file: png, jpg, bmp o jpeg ",
+
             'price.numeric' => 'Inserire un numero.',
             'price.max' => 'Il "Prezzo" non deve essere superiore a :max'
         ];
