@@ -10,7 +10,7 @@ class RestaurantController extends Controller
 {
     public function index()
     {
-        $restaurants = Restaurant::with(['types', 'dishes'])->get();
+        $restaurants = Restaurant::with(['types', 'dishes', 'user'])->get();
 
         return response()->json([
             "success" => true,
@@ -19,7 +19,7 @@ class RestaurantController extends Controller
     }
 
     public function show($id) {
-        $restaurant = Restaurant::with('types', 'dishes')->where('id', $id)->first();
+        $restaurant = Restaurant::with('types', 'dishes', 'user')->where('id', $id)->first();
 
         return response()->json([
             "success" => true,
