@@ -34,10 +34,15 @@
 
             <div class="mb-3">
                 <label for="image">Inserisci un'immagine di copertina</label>
-                <input type="file" class="form-control" name="image">
+                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
                 @if ($dish->image)
                 <img src="{{ asset('storage/' . $dish->image) }}" style="max-width: 200px; height: auto;">
                 @endif
+                @error('image')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
             </div>
 
             <div class="mb-3">
