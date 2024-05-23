@@ -28,7 +28,7 @@ class NewOrder extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            replyTo: $this->order->customer_address,
+            replyTo: $this->order->customer_email,
             subject: 'New Order',
         );
     }
@@ -39,7 +39,7 @@ class NewOrder extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.new-order',
+            view: 'emails.new-order',
         );
     }
 
