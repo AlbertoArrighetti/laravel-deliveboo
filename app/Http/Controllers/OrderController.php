@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
+use App\Mail\NewOrder;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -29,7 +30,19 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $newOrder = new Order();
+
+        $newOrder->fill($request->all());
+        $newOrder->save();
+
+        Mail::to('alberto.arrighetti1571@gmail.com')->send(new NewOrder($newOrder));
+
+        // risposta al cliente
+        return response()->json([
+            'success' => true,
+            'message' => 'Richiesta di contatto inviata correttamente',
+            'request' => $request->all()
+        ]);
     }
 
     /**
@@ -51,7 +64,7 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrderRequest $request, Order $order)
+    public function update(StoreOrderRequest $request, Order $order)
     {
         //
     }

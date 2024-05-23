@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\Typecontroller;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,10 @@ Route::get('/restaurants', [RestaurantController::class, 'index']);
 // rotta API per tipologie
 Route::get('/types', [Typecontroller::class, 'index']);
 
+
+
 Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
+
+
+
+Route::post('/new-order', [OrderController::class, 'store']);
