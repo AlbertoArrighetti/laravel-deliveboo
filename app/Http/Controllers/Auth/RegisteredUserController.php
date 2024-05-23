@@ -63,6 +63,8 @@ class RegisteredUserController extends Controller
             'email.lowercase' => 'Questo campo deve essere minuscolo.',
             'email.email' => 'Email non valida.',
 
+            'image.mimes' => "Il formato dell'immagine non è supportato, inserisci un file: png, jpg, bmp o jpeg ",
+
             'types.required' => 'Seleziona almeno un campo.',
 
             'password.confirmed' => 'Assicurati che le password inserite siano uguali.',
