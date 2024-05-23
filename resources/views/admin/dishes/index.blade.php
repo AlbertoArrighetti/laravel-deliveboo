@@ -7,7 +7,7 @@
             <h2 class="title">{{$restaurant->restaurant_name}} <p class="fw-lighter">Menù</p></h2>
 
             {{-- add a new dish --}}
-            <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"> Aggiungi piatto</i></a>
+            <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
         </div>
 
         <div class="dishes-list">
