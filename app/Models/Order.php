@@ -16,6 +16,7 @@ class Order extends Model
         'customer_email',
         'customer_phone',
         'total_price',
+        'restaurant_id'
     ];
 
     public function dishes() {
