@@ -31,8 +31,7 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders'));
     }
 
-    public function store(Request $request) {
-    public function store(Request $request)
+    public function store(Request $request) 
     {
 
         // validation
