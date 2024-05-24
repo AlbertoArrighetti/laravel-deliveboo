@@ -8,10 +8,52 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Validator;
+
+
+
 class OrderController extends Controller
 {
     public function store(Request $request)
     {
+
+        // validation
+        $validator = Validator::make($request->all(), [
+            'customer_name' => ['required', 'string', 'max:255'],
+            'customer_lastname' => ['required', 'string', 'max:255'],
+            'customer_address' => ['required', 'max:255', 'string'],
+            
+            'customer_email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+
+            'customer_phone' => ['required', 'min: 8', 'max:10'],
+            'total_price' => ['required'],
+        ], 
+        [
+            'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
+            'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
+            'min' => 'Il campo: ":attribute" deve contenere minimo :min caratteri.',
+            'unique' => 'Il campo: ":attribute" è già esistente',
+            
+            'email.lowercase' => 'Questo campo deve essere minuscolo.',
+            'email.email' => 'Email non valida.',
+        ],
+        [
+            'customer_name' => 'Nome',
+            'customer_lastname' => 'Cognome',
+            'customer_address' => 'Indirizzo',
+            'customer_email' => 'E-Mail',
+            'customer_phone' => 'Numero di telefono',
+        ]);
+
+        // if it fails
+        if($validator->fails()) {
+            // return error message
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]);
+            
+        }
 
 
         $newOrder = new Order();
