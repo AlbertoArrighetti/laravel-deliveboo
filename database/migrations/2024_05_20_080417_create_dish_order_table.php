@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->foreignId('order_id')->constrained()->cascadeOnDelete();
 
-            $table->tinyInteger('quantity');
+            $table->tinyInteger('quantity')->default(1);
 
             $table->primary(['dish_id', 'order_id']);
         });
