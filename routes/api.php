@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\Typecontroller;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,7 @@ Route::get('/restaurants', [RestaurantController::class, 'index']);
 Route::get('/types', [Typecontroller::class, 'index']);
 
 Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
+
+
+Route::get('braintree/token', [PaymentController::class, 'token']);
+Route::post('braintree/checkout', [PaymentController::class, 'checkout']);
