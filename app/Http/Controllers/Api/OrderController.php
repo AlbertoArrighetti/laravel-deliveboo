@@ -13,13 +13,19 @@ class OrderController extends Controller
     public function store(Request $request) {
 
      
-        $newOrder = new Order();
+        $newOrder = new Order();    
+
         // fill
         $newOrder->fill($request->all());
         $newOrder->save();
 
-        Mail::to('alberto.arrighetti1571@gmail.com')->send(new NewOrder($newOrder));
 
+
+        Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
+        // forse new order da cambiare
+        Mail::to('alberto.arrighetti@gmail.com')->send(new NewOrder($newOrder));
+
+        $newOrder->dishes()->attach($request->dishes);
 
 
         // respond to the customer here
