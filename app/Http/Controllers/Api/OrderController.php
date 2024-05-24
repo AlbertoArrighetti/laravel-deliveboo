@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Mail\NewOrder;
 use App\Models\Order;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
@@ -13,7 +15,16 @@ class OrderController extends Controller
 
     public function index()
     {
-        return view('admin.orders.index');
+
+        $user = Auth::user();
+        
+        $restaurant = Restaurant::where('user_id', $user->id)->first();
+
+        $restaurantId = auth()->user()->restaurant->id;
+
+        $orders = Order::where('restaurant_id', $restaurantId)->get();
+
+        return view('admin.orders.index', compact('orders'));
     }
 
     public function store(Request $request) {
