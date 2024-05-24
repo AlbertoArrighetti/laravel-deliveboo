@@ -17,12 +17,12 @@ class OrderController extends Controller
     {
 
         $user = Auth::user();
-        
+
         $restaurant = Restaurant::where('user_id', $user->id)->first();
 
         $restaurantId = auth()->user()->restaurant->id;
 
-        $orders = Order::where('restaurant_id', $restaurantId)->get();
+        $orders = Order::where('restaurant_id', $restaurantId)->orderBy('created_at', 'DESC')->get();
 
         return view('admin.orders.index', compact('orders'));
     }
