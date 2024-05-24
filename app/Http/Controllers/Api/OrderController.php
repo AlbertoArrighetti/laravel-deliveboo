@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
+
+    public function index()
+    {
+        return view('admin.orders.index');
+    }
+
     public function store(Request $request) {
 
      
