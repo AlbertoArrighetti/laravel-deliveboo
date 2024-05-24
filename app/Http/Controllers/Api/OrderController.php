@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
-     
-        $newOrder = new Order();    
+
+        $newOrder = new Order();
 
         // fill
         $newOrder->fill($request->all());
@@ -21,9 +22,8 @@ class OrderController extends Controller
 
 
 
-        Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
-        // forse new order da cambiare
-        Mail::to('alberto.arrighetti@gmail.com')->send(new NewOrder($newOrder));
+        // Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
+        // Mail::to('alberto.arrighetti@gmail.com')->send(new NewOrder($newOrder));
 
         $newOrder->dishes()->attach($request->dishes);
 
