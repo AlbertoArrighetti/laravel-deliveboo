@@ -8,6 +8,7 @@
 
             {{-- add a new dish --}}
             <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
+            <a class="btn btn-warning" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i> Torna indietro</a>
         </div>
 
         <div class="dishes-list">
