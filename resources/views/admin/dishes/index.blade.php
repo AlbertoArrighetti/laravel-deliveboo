@@ -4,7 +4,8 @@
 <section>
     <div class="container"> 
         <div class="page-title">
-            <a class="btn btn-warning" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i></a>
+            {{-- back to home --}}
+            <a class="btn btn1" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i> Home</a>
             <h2 class="title">{{$restaurant->restaurant_name}}</h2>
         </div>
 
@@ -13,7 +14,7 @@
             <div class="menu-title">
                 <h2 class="fw-lighter">Menù</h2>
                 {{-- add a new dish --}}
-                <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
+                <a class="btn btn1" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
             </div>
 
             <table class="table table-hover">
@@ -28,9 +29,9 @@
                 
                 <tbody>
                     @forelse ($dishes as $dish)
-                        <tr class="align-middle">
+                        <tr class="align-middle dish">
                             <td>
-                                <a href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
+                                <a class="dish-name" href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
                             </td>
                             
                             <td class="text-center">

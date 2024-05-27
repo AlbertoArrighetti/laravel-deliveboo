@@ -3,12 +3,11 @@
 @section('content')
 <section>
     <div class="container">
-        
-        <div class="page-title">
-            <h2 class="title">Modifica piatto</h2>
 
-            {{-- go back to the dish --}}
-            <a class="btn btn-outline-secondary" href="{{route('admin.dishes.index')}}">Indietro</a>
+        <div class="page-title">
+            {{-- go back to the dish list --}}
+            <a class="btn btn1" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i> Menù</a>
+            <h2 class="title">Modifica il piatto</h2>
         </div>
 
         {{-- form --}}
@@ -60,17 +59,13 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-    
-            <div class="d-flex justify-content-between mt-4 ">
-                <div>
-                    {{-- go back to the list --}}
-                    <a class="btn btn-warning" href="{{route('admin.dishes.show', $dish->id)}}">Annulla</a>
-                </div>
 
-                <div>
-                    <button type="submit" class="btn btn-success">Salva Modifiche</button>
-                </div>
-    
+            <div class="d-flex justify-content-end gap-3 my-4">
+            
+                {{-- go back to the dish page --}}
+                <a class="btn btn3" href="{{route('admin.dishes.show', $dish->id)}}">Annulla</a>
+
+                <button type="submit" class="btn btn2">Salva le modifiche</button>
             </div>
         </form>
     </div>

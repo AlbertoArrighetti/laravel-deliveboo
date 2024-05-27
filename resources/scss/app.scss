@@ -13,15 +13,16 @@ input[type="number"]::-webkit-inner-spin-button {
     display: none;
 }
 
+html {
+    font-family: "Poppins", sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: $grey8;
-}
-
-html {
-    font-family: "Poppins", sans-serif;
+    font-family: inherit;
 }
 
 a {
@@ -41,9 +42,71 @@ img {
 
 body {
     background-color: $grey1;
+    font-family: inherit;
 
     nav {
         background-color: $light;
+    }
+}
+
+// buttons
+.btn1 {
+    background-color: $primary1;
+    color: $light;
+    border: 1px solid $primary1;
+
+    i {
+        color: $light;
+    }
+
+    &:hover {
+        background-color: $light;
+        color: $grey8;
+        border: 1px solid $primary1;
+
+        i {
+            color: $grey8;
+        }
+    }
+}
+
+.btn2 {
+    background-color: $discount;
+    color: $light;
+    border: 1px solid $discount;
+
+    i {
+        color: $light;
+    }
+
+    &:hover {
+        background-color: $light;
+        color: $grey8;
+        border: 1px solid $discount;
+
+        i {
+            color: $grey8;
+        }
+    }
+}
+
+.btn3 {
+    background-color: $grey6;
+    color: $light;
+    border: 1px solid $grey6;
+
+    i {
+        color: $light;
+    }
+
+    &:hover {
+        background-color: $light;
+        color: $grey6;
+        border: 1px solid $grey6;
+
+        i {
+            color: $grey6;
+        }
     }
 }
 

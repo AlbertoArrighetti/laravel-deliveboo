@@ -13,4 +13,18 @@
         justify-content: space-between;
         align-items: flex-start;
     }
+
+    .dish {
+        &:hover {
+            .dish-name {
+                text-decoration: underline;
+            }
+        }
+
+        .fa-pen-to-square {
+            &:hover {
+                color: $primary1;
+            }
+        }
+    }
 }

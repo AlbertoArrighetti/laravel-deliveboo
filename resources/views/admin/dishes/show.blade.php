@@ -3,13 +3,14 @@
 @section('content')
 <section>
     <div class="container">
-        <div class="page-title">
-            <h2 class="title">{{$dish->name}}</h2>
 
-            {{-- go back to the list --}}
-            <a class="btn btn-warning" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i> Torna alla lista</a>
+        <div class="page-title">
+            {{-- go back to the dish list --}}
+            <a class="btn btn1" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i> Menù</a>
+            <h2 class="title">{{$dish->name}}</h2>
         </div>
 
+        {{-- card --}}
         <div class="dish-card">
             <div class="dish-card_img">
                 @if ($dish->image)
@@ -29,16 +30,15 @@
                         @endif
                     </p>
                 </div>
-                <div class="dish-card_btn ">
+                <div class="dish-card_btn">                   
+                    {{-- edit --}}
+                    <a class="btn btn1" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
                     
                     {{-- delete --}}
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <button type="button" class="btn btn3" data-bs-toggle="modal" data-bs-target="#deleteModal">
                         Elimina
                     </button>
-                    
-                    {{-- edit --}}
-                    <a class="btn btn-secondary" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
-                    
+
                     <!-- delete modal -->
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -54,11 +54,11 @@
                                 </div>
                                 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                    <button type="button" class="btn btn1" data-bs-dismiss="modal">Annulla</button>
                                     <form action="{{route('admin.dishes.destroy', $dish->id)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger">Elimina</button>
+                                        <button class="btn btn3">Elimina</button>
                                     </form>
                                 </div>
                                 

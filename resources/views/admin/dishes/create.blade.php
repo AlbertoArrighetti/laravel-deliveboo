@@ -5,7 +5,7 @@
     <div class="container">
         <div class="page-title">
             {{-- go back to the dish list --}}
-            <a class="btn btn-warning" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i></a>
+            <a class="btn btn1" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i> Menù</a>
             <h2 class="title">Aggiungi un piatto</h2>
         </div>
 
@@ -63,16 +63,12 @@
             </div>
 
 
-            <div class="d-flex justify-content-between mt-4">
-                
-                <div>
-                    {{-- go back to the list --}}
-                    <a class="btn btn-warning" href="{{route('admin.dishes.index')}}">Annulla</a>
-                </div>
+            <div class="d-flex justify-content-end gap-3 my-4">
+            
+                {{-- go back to the dish list --}}
+                <a class="btn btn3" href="{{route('admin.dishes.index')}}">Annulla</a>
 
-                <div>
-                    <button type="submit" class="btn btn-primary">Aggiungi il piatto</button>
-                </div>
+                <button type="submit" class="btn btn2">Aggiungi il piatto</button>
             </div>
 
         </form>

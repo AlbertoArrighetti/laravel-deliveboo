@@ -10,9 +10,9 @@
             <div class="rest-card_img">
                 <img src="{{'storage/' . $restaurant->image}}" alt="{{$restaurant->restaurant_name}}">
             </div>            
-            <div class="rest-card_text">
-                <h3 class="">{{$restaurant->restaurant_name}}</h3>
+            <div class="rest-card_text ">
                 <div class="rest-info">
+                    <h3 class="">{{$restaurant->restaurant_name}}</h3>
                     <p>{{$restaurant->address}}</p>
                     <p>+39 {{$user->phone_number}}</p>
                     <p>P.IVA: {{$user->vat}}</p>
@@ -23,8 +23,8 @@
                     </div>
                 </div>
                 <div class="rest-card_btn">
-                    <a href="{{route('admin.dishes.index')}}" class="btn btn-warning">Menù</a>
-                    <a href="{{route('admin.orders.index')}}" class="btn btn-warning">Ordini</a>
+                    <a href="{{route('admin.dishes.index')}}" class="btn btn1">Menù</a>
+                    <a href="{{route('admin.orders.index')}}" class="btn btn1">Ordini</a>
                 </div>
             </div>
         </div>
