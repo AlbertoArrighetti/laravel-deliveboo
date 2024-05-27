@@ -1,11 +1,8 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
-.dishes-list {
-    @include box1;
-    padding: 10px 20px;
-
-    .menu-title {
+.box-list {
+    .box-title {
         @include title-semi;
         padding: 16px 0;
 

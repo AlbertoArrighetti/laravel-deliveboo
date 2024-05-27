@@ -9,9 +9,9 @@
             <h2 class="title">{{$restaurant->restaurant_name}}</h2>
         </div>
 
-        <div class="dishes-list">
+        <div class="box-list">
 
-            <div class="menu-title">
+            <div class="box-title">
                 <h2 class="fw-lighter">Menù</h2>
                 {{-- add a new dish --}}
                 <a class="btn btn1" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>

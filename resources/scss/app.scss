@@ -123,3 +123,8 @@ section {
     align-items: flex-start;
     gap: 20px;
 }
+
+.box-list {
+    @include box1;
+    padding: 10px 20px;
+}

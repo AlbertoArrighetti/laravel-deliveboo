@@ -2,27 +2,54 @@
 
 @section('content')
 <section>
-    <a class="btn btn-warning" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i> Torna indietro</a>
-    @forelse ($orders as $order)
-        <h2>
-            ordine numero {{$order->id}}
-        </h2>
+    <div class="container">
+        <div class="page-title">
+            {{-- go back to the dish list --}}
+            <a class="btn btn1" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i> Home</a>
+            <h2 class="title">I tuoi ordini</h2>
+        </div>
 
-        <h3>
-            data: {{$order->created_at}}
-        </h3>
-
-        <h4>
-            prezzo ordine: {{$order->total_price}} €
-        </h4>
-
-        <h4>
-            nome cliente: {{$order->customer_name}} {{$order->customer_lastname}} 
-        </h4>
-    @empty
-        <tr>
-        <td>Nessun ordine ricevuto</td>
-        </tr>
-    @endforelse
+        <div class="box-list">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col" class="text-center">Data e ora</th>
+                    <th scope="col" class="text-center">Totale</th>
+                    <th scope="col" class="text-center">Cliente</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    @forelse ($orders as $order)
+                        <tr class="align-middle dish">
+                            <td>
+                                {{$order->id}}
+                            </td>
+                            
+                            <td class="text-center">
+                                {{$order->created_at}}
+                            </td>
+    
+                            <td class="text-center">
+                                {{$order->total_price}} €
+                            </td>
+    
+                            <td class="text-center">
+                                {{$order->customer_name}} {{$order->customer_lastname}}
+                            </td>                 
+                        </tr>
+                    @empty
+                        <tr>
+                            <td>Nessun ordine ricevuto</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
 </section>
 @endsection
