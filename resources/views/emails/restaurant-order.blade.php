@@ -1,11 +1,14 @@
 
 <h1>
-    ordine per ristoratore
+    Hai ricevuto un nuovo ordine
 </h1>
 
 <p>
+    Dati cliente:
     <ul>
-        <li> {{$order->customer_name}} </li>
-        <li> {{$order->customer_lastname}} </li>
+        <li> Nome: {{$order->customer_name}} </li>
+        <li> Cognome: {{$order->customer_lastname}} </li>
+        <li> Indirizzo: {{$order->customer_address}} </li>
+        <li> Telefono: {{$order->customer_phone}} </li>
     </ul>
 </p>

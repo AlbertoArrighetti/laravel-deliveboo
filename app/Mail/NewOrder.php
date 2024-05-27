@@ -29,7 +29,7 @@ class NewOrder extends Mailable
     {
         return new Envelope(
             replyTo: $this->order->customer_email,
-            subject: 'New Order',
+            subject: 'Riepilogo Ordine',
         );
     }
 

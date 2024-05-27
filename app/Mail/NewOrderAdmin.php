@@ -29,7 +29,7 @@ class NewOrderAdmin extends Mailable
     {
         return new Envelope(
             replyTo: $this->order->customer_email,
-            subject: 'New Request',
+            subject: 'Nuovo ordine ricevuto',
         );
     }
 
