@@ -43,7 +43,6 @@ class OrderController extends Controller
             'customer_email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
 
             'customer_phone' => ['required', 'min: 8', 'max:10'],
-            'total_price' => ['required'],
         ], 
         [
             'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
@@ -51,8 +50,8 @@ class OrderController extends Controller
             'min' => 'Il campo: ":attribute" deve contenere minimo :min caratteri.',
             'unique' => 'Il campo: ":attribute" è già esistente',
             
-            'email.lowercase' => 'Questo campo deve essere minuscolo.',
-            'email.email' => 'Email non valida.',
+            'lowercase' => 'Questo campo deve essere minuscolo.',
+            'email' => 'Email non valida.',
         ],
         [
             'customer_name' => 'Nome',
