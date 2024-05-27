@@ -22,7 +22,7 @@
                     <p><span class="title">Descrizione:</span><br>{{$dish->description}}</p>
                     <p><span class="title">Prezzo: </span>{{$dish->price}}€</p>
                     <p>
-                        <span class="title">Attivo: </span>
+                        <span class="title">Disponibile: </span>
                         @if($dish->viewable == 1)
                         <i class="fa-regular fa-circle-check text-success "></i>
                         @else
