@@ -3,7 +3,6 @@
 @section('content')
 <section>
     <a class="btn btn-warning" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i> Torna indietro</a>
-    @dd($orders)
     @forelse ($orders as $order)
         <h2>
             ordine numero {{$order->id}}
