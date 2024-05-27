@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\NewOrder;
 use App\Models\Order;
 use App\Models\Restaurant;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -79,10 +80,10 @@ class OrderController extends Controller
         $newOrder->fill($request->all());
         $newOrder->save();
 
+        $user = User::where('id', $newOrder->restaurant_id)->first();
 
-
-        // Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
-        // Mail::to('alberto.arrighetti@gmail.com')->send(new NewOrder($newOrder));
+        Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
+        Mail::to($user->email)->send(new NewOrder($newOrder));
 
         $newOrder->dishes()->attach($request->dishes);
 

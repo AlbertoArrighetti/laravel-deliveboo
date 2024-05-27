@@ -1,6 +1,6 @@
 
 <h1>
-    ordine per cliente
+    ordine per ristoratore
 </h1>
 
 <p>
