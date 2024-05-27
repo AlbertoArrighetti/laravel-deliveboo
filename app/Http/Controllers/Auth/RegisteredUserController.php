@@ -39,49 +39,51 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate(
-        [
-            'name' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'phone_number' => ['required', 'min: 8', 'max:10'],
-            'vat' => ['required', 'min:11', 'max:11', 'unique:' . User::class],
+            [
+                'name' => ['required', 'string', 'max:255'],
+                'lastname' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                'phone_number' => ['required', 'min: 8', 'max:10'],
+                'vat' => ['required', 'min:11', 'max:11', 'unique:' . User::class],
 
 
-            'restaurant_name' => ['required', 'max:255', 'string'],
-            'address' => ['required', 'max:255', 'string'],
-            'image' => ['nullable', 'file', 'max:1024', 'mimes:jpg,png,bpm,jpeg'],
+                'restaurant_name' => ['required', 'max:255', 'string'],
+                'address' => ['required', 'max:255', 'string'],
+                'image' => ['nullable', 'file', 'max:1024', 'mimes:jpg,png,bpm,jpeg'],
 
-            'types' => ['required'],
-        ], 
-        [
-            'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
-            'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
-            'min' => 'Il campo: ":attribute" deve contenere minimo :min caratteri.',
-            'unique' => 'Il campo: ":attribute" è già esistente',
-            
-            'email.lowercase' => 'Questo campo deve essere minuscolo.',
-            'email.email' => 'Email non valida.',
+                'types' => ['required'],
+            ],
+            [
+                'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
+                'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
+                'min' => 'Il campo: ":attribute" deve contenere minimo :min caratteri.',
+                'unique' => 'Il campo: ":attribute" è già esistente',
 
-            'image.mimes' => "Il formato dell'immagine non è supportato, inserisci un file: png, jpg, bmp o jpeg ",
+                'email.lowercase' => 'Questo campo deve essere minuscolo.',
+                'email.email' => 'Email non valida.',
 
-            'types.required' => 'Seleziona almeno un campo.',
+                'image.mimes' => "Il formato dell'immagine non è supportato, inserisci un file: png, jpg, bmp o jpeg ",
+                'image.max' => "Il file caricato è troppo grande. La dimensione massima consentita è di 1MB.",
 
-            'password.confirmed' => 'Assicurati che le password inserite siano uguali.',
-        ],
-        [
-            'name' => 'Nome',
-            'lastname' => 'Cognome',
-            'email' => 'E-Mail',
-            'password' => 'Password',
-            'phone_number' => 'Numero di telefono',
-            'vat' => 'P.IVA',
+                'types.required' => 'Seleziona almeno un campo.',
 
-            'restaurant_name' => 'Nome ristorante',
-            'address' => 'Indirizzo',
-            'image' => 'Immagine',
-        ]);
-        
+                'password.confirmed' => 'Assicurati che le password inserite siano uguali.',
+            ],
+            [
+                'name' => 'Nome',
+                'lastname' => 'Cognome',
+                'email' => 'E-Mail',
+                'password' => 'Password',
+                'phone_number' => 'Numero di telefono',
+                'vat' => 'P.IVA',
+
+                'restaurant_name' => 'Nome ristorante',
+                'address' => 'Indirizzo',
+                'image' => 'Immagine',
+            ]
+        );
+
 
         $user = User::create([
             'name' => $request->name,
@@ -93,7 +95,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $path = Storage::disk('public')->put('restaurant_images', $request->image);
-        
+
         $restaurant = Restaurant::create([
             'restaurant_name' => $request->restaurant_name,
             'address' => $request->address,
@@ -115,5 +117,3 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 }
-
-

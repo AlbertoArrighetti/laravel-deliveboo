@@ -4,4 +4,13 @@
 .dishes-list {
     @include box1;
     padding: 10px 20px;
+
+    .menu-title {
+        @include title-semi;
+        padding: 16px 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 }

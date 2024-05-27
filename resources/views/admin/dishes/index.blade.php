@@ -4,14 +4,18 @@
 <section>
     <div class="container"> 
         <div class="page-title">
-            <h2 class="title">{{$restaurant->restaurant_name}} <p class="fw-lighter">Menù</p></h2>
-
-            {{-- add a new dish --}}
-            <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
-            <a class="btn btn-warning" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i> Torna indietro</a>
+            <a class="btn btn-warning" href="{{route('admin.')}}"><i class="fa-solid fa-angle-left"></i></a>
+            <h2 class="title">{{$restaurant->restaurant_name}}</h2>
         </div>
 
         <div class="dishes-list">
+
+            <div class="menu-title">
+                <h2 class="fw-lighter">Menù</h2>
+                {{-- add a new dish --}}
+                <a class="btn btn-warning" href="{{route('admin.dishes.create')}}"><i class="fa-solid fa-plus"></i></a>
+            </div>
+
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -47,7 +51,10 @@
                         </tr>
                     @empty
                         <tr>
-                        <td>Nessun piatto inserito</td>
+                            <td>Nessun piatto inserito</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
                 </tbody>
