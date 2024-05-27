@@ -82,8 +82,8 @@ class OrderController extends Controller
 
         $user = User::where('id', $newOrder->restaurant_id)->first();
 
-        Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
-        Mail::to($user->email)->send(new NewOrderAdmin($newOrder));
+        // Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
+        // Mail::to($user->email)->send(new NewOrderAdmin($newOrder));
 
         $newOrder->dishes()->attach($request->dishes);
 
