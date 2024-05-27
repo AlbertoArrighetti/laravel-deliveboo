@@ -4,10 +4,9 @@
 <section>
     <div class="container">
         <div class="page-title">
+            {{-- go back to the dish list --}}
+            <a class="btn btn-warning" href="{{route('admin.dishes.index')}}"><i class="fa-solid fa-angle-left"></i></a>
             <h2 class="title">Aggiungi un piatto</h2>
-
-            {{-- go back to the dish --}}
-            <a class="btn btn-outline-secondary" href="{{route('admin.dishes.index')}}">Indietro</a>
         </div>
 
         <form action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
