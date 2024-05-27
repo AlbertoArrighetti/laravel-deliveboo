@@ -1,11 +1,10 @@
 
 <h1>
-    Nuova richiesta di ordine
+    Grazie del tuo ordine, {{$order->customer_name}}!
 </h1>
 
 <p>
-    <ul>
-        <li> {{$order->customer_name}} </li>
-        <li> {{$order->customer_lastname}} </li>
-    </ul>
+    Il tuo ordine verrà spedito a: {{$order->customer_address}} <br>
+    Totale ordine: {{$order->total_price}}
 </p>
+

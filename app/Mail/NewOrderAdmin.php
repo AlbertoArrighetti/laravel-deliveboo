@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class NewOrder extends Mailable
+class NewOrderAdmin extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,7 +29,7 @@ class NewOrder extends Mailable
     {
         return new Envelope(
             replyTo: $this->order->customer_email,
-            subject: 'Riepilogo Ordine',
+            subject: 'Nuovo ordine ricevuto',
         );
     }
 
@@ -39,7 +39,7 @@ class NewOrder extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.new-order',
+            view: 'emails.restaurant-order',
         );
     }
 
