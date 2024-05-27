@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\NewOrder;
+use App\Mail\NewOrderAdmin;
 use App\Models\Order;
 use App\Models\Restaurant;
 use App\Models\User;
@@ -83,7 +84,7 @@ class OrderController extends Controller
         $user = User::where('id', $newOrder->restaurant_id)->first();
 
         Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
-        Mail::to($user->email)->send(new NewOrder($newOrder));
+        Mail::to($user->email)->send(new NewOrderAdmin($newOrder));
 
         $newOrder->dishes()->attach($request->dishes);
 
