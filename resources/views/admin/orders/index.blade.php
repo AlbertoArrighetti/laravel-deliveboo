@@ -17,6 +17,7 @@
                     <th scope="col" class="text-center">Ora</th>
                     <th scope="col" class="text-center">Totale</th>
                     <th scope="col" class="text-center">Cliente</th>
+                    <th scope="col" class="text-center"></th>
                     </tr>
                 </thead>
                 
@@ -38,7 +39,11 @@
     
                             <td class="text-center">
                                 {{$order->customer_name}} {{$order->customer_lastname}}
-                            </td>                 
+                            </td>  
+                            
+                            <td class="text-center">
+                                <a class="btn btn1" href="{{route('admin.orders.show', $order)}}">Dettagli</a>
+                            </td>  
                         </tr>
                     @empty
                         <tr>

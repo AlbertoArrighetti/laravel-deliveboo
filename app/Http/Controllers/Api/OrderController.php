@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Mail\NewOrder;
 use App\Mail\NewOrderAdmin;
+use App\Models\Dish;
 use App\Models\Order;
 use App\Models\Restaurant;
 use App\Models\User;
@@ -31,6 +32,15 @@ class OrderController extends Controller
         $orders = Order::where('restaurant_id', $restaurantId)->orderBy('created_at', 'DESC')->get();
 
         return view('admin.orders.index', compact('orders'));
+    }
+
+    public function show(Order $order)
+    {
+
+        $dishes = $order->dishes()->get();
+
+
+        return view('admin.orders.show', compact('order', 'dishes'));
     }
 
     public function store(Request $request) 
