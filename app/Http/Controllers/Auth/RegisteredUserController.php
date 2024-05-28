@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
 
                 'restaurant_name' => ['required', 'max:255', 'string'],
                 'address' => ['required', 'max:255', 'string'],
-                'image' => ['nullable', 'file', 'max:1024', 'mimes:jpg,png,bpm,jpeg'],
+                'image' => ['nullable', 'file', 'max:1024', 'mimes:jpg,png,jpeg'],
 
                 'types' => ['required'],
             ],
