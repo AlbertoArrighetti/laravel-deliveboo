@@ -44,7 +44,7 @@ class OrderController extends Controller
             
             'customer_email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
 
-            'customer_phone' => ['required', 'min: 8', 'max:10'],
+            'customer_phone' => ['required', 'min:8', 'max:10'],
         ], 
         [
             'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
