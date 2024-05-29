@@ -126,5 +126,17 @@ section {
 
 .box-list {
     @include box1;
-    padding: 10px 20px;
+    padding: 20px;
+}
+
+.circle {
+    background-color: $primary1;
+    color: $light;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
