@@ -20,18 +20,29 @@
                 <div class="box-list m-0">
                     <ul class="d-flex flex-column gap-2 m-0 ps-0">
                         @foreach ($dishes as $dish)
-                        <li class="d-flex align-items-center gap-2">
-                            <div class="circle">
-                                {{ $dish->pivot->where('dish_id', $dish->id)->where('order_id', $order->id)->first()->quantity}}
-                            </div>
-                            {{$dish->name}}
-                        </li>
+                            @php
+                                // dish quantity
+                                $quantity = $dish->pivot->where('dish_id', $dish->id)->where('order_id', $order->id)->first()->quantity;
+                                // dish price x quantity
+                                $total = $dish->price * $quantity;
+                            @endphp
+                            <li class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-start align-items-center gap-2">
+                                    <div class="circle">
+                                        {{ $quantity }}
+                                    </div>
+                                    {{$dish->name}}
+                                </div>
+                                <div class="fw-light">
+                                    € {{ number_format($dish->price, 2) }} x {{$quantity}} = {{ number_format($total, 2) }}
+                                </div>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
     
                 <div class="box-list">
-                    <span class="fw-semibold">Totale:</span> € {{$order->total_price}}
+                    <span class="fw-semibold">Totale ordine:</span> € {{$order->total_price}}
                 </div>
             </div>
 
