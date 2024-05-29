@@ -55,9 +55,15 @@ class NewOrder extends Mailable
 
     public function build()
     {
+        $restaurant = $this->order->restaurant;
+        $user = $this->order->restaurant->user;
+
         return $this->view('emails.neworder')
             ->with([
                 'order' => $this->order->dishes(),
+                'restaurant' => $restaurant,
+                'user' => $user
+
             ]);
     }
 }

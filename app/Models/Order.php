@@ -19,7 +19,13 @@ class Order extends Model
         'restaurant_id'
     ];
 
-    public function dishes() {
+    public function dishes()
+    {
         return $this->belongsToMany(Dish::class);
+    }
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
     }
 }

@@ -52,4 +52,12 @@ class NewOrderAdmin extends Mailable
     {
         return [];
     }
+
+    public function build()
+    {
+        return $this->view('emails.neworder')
+            ->with([
+                'order' => $this->order->dishes(),
+            ]);
+    }
 }
