@@ -8,6 +8,8 @@ use Illuminate\Database\Seeder;
 
 use Faker\Generator as Faker;
 
+use Illuminate\Support\Str;
+
 class DishSeeder extends Seeder
 {
     /**
@@ -146,6 +148,7 @@ class DishSeeder extends Seeder
             $newDish = new Dish();
 
             $newDish->name = $dish['name'];
+            $newDish->slug = Str::slug($newDish->name);
             $newDish->description = $dish['description'];
             $newDish->price = $dish['price'];
             $newDish->viewable = $dish['viewable']; 

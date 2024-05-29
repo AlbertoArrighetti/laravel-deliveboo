@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [DashboardController::class, 'index']);
 
     // dishes
-    Route::resource('dishes', DishController::class);
+    Route::resource('dishes', DishController::class)->parameters(['dishes' => 'dish:slug']);
 
     // orders
     Route::resource('orders', OrderController::class);
