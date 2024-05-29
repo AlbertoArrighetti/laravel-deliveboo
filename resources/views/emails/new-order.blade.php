@@ -8,3 +8,6 @@
     Totale ordine: {{$order->total_price}}
 </p>
 
+@foreach($order->dishes as $dish)
+    <p>{{ $dish->name }} - €{{ $dish->price }}</p>
+@endforeach

@@ -33,44 +33,46 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders'));
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
 
         // validation
-        $validator = Validator::make($request->all(), [
-            'customer_name' => ['required', 'string', 'max:255'],
-            'customer_lastname' => ['required', 'string', 'max:255'],
-            'customer_address' => ['required', 'max:255', 'string'],
-            
-            'customer_email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'customer_name' => ['required', 'string', 'max:255'],
+                'customer_lastname' => ['required', 'string', 'max:255'],
+                'customer_address' => ['required', 'max:255', 'string'],
 
-            'customer_phone' => ['required', 'min:8', 'max:10'],
-        ], 
-        [
-            'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
-            'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
-            'min' => 'Il campo: ":attribute" deve contenere minimo :min caratteri.',
-            'unique' => 'Il campo: ":attribute" è già esistente',
-            
-            'lowercase' => 'Questo campo deve essere minuscolo.',
-            'email' => 'Email non valida.',
-        ],
-        [
-            'customer_name' => 'Nome',
-            'customer_lastname' => 'Cognome',
-            'customer_address' => 'Indirizzo',
-            'customer_email' => 'E-Mail',
-            'customer_phone' => 'Numero di telefono',
-        ]);
+                'customer_email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+
+                'customer_phone' => ['required', 'min:8', 'max:10'],
+            ],
+            [
+                'required' => 'Il campo: ":attribute" deve essere inserito per proseguire.',
+                'max' => 'Il campo: ":attribute" deve contenere massimo :max caratteri.',
+                'min' => 'Il campo: ":attribute" deve contenere minimo :min caratteri.',
+                'unique' => 'Il campo: ":attribute" è già esistente',
+
+                'lowercase' => 'Questo campo deve essere minuscolo.',
+                'email' => 'Email non valida.',
+            ],
+            [
+                'customer_name' => 'Nome',
+                'customer_lastname' => 'Cognome',
+                'customer_address' => 'Indirizzo',
+                'customer_email' => 'E-Mail',
+                'customer_phone' => 'Numero di telefono',
+            ]
+        );
 
         // if it fails
-        if($validator->fails()) {
+        if ($validator->fails()) {
             // return error message
             return response()->json([
                 'success' => false,
                 'errors' => $validator->errors()
             ]);
-            
         }
 
 
@@ -80,12 +82,18 @@ class OrderController extends Controller
         $newOrder->fill($request->all());
         $newOrder->save();
 
+
+
         $user = User::where('id', $newOrder->restaurant_id)->first();
 
-        // Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
-        // Mail::to($user->email)->send(new NewOrderAdmin($newOrder));
+
 
         $newOrder->dishes()->attach($request->dishes);
+
+
+
+        Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
+        Mail::to($user->email)->send(new NewOrderAdmin($newOrder));
 
 
         // respond to the customer here
