@@ -36,6 +36,9 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
+        if ($order->restaurant_id != auth()->user()->restaurant->id) {
+            abort(404);
+        }
 
         $dishes = $order->dishes()->get();
 
