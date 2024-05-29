@@ -25,6 +25,9 @@
             <div class="mb-3">
                 <label for="image">Inserisci un'immagine di copertina</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
+                <label for="image"><small>formati supportati: jpeg, jpg, png</small></label>
+
+                
                 @error('image')
                 <div class="invalid-feedback">
                     {{$message}}
