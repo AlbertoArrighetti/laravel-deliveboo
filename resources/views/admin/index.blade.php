@@ -6,8 +6,8 @@
         <div class="page-title">
             <h2 class="title">Ciao {{$user->name}}!</h2>
         </div>
-        <div class="rest-card">
-            <div class="rest-card_img">
+        <div class="rest-card d-flex flex-column flex-md-row">
+            <div class="rest-card_img w-auto">
                 <img src="{{'storage/' . $restaurant->image}}" alt="{{$restaurant->restaurant_name}}">
             </div>            
             <div class="rest-card_text ">

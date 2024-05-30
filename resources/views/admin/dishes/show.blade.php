@@ -32,10 +32,10 @@
                 </div>
                 <div class="dish-card_btn">                   
                     {{-- edit --}}
-                    <a class="btn btn1" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
+                    <a class="btn btn1 mb-2" href="{{route('admin.dishes.edit', $dish)}}">Modifica</a>
                     
                     {{-- delete --}}
-                    <button type="button" class="btn btn3" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <button type="button" class="btn btn3 mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
                         Elimina
                     </button>
 
