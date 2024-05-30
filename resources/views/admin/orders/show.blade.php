@@ -10,10 +10,10 @@
             <h2 class="title">Dettagli ordine</h2>
         </div>
 
-        <div class="d-flex align-items-start gap-3">
+        <div class="d-flex align-items-start gap-3 flex-column flex-md-row">
 
             {{-- ORDER --}}
-            <div class="flex-fill d-flex flex-column gap-3">
+            <div class="flex-fill d-flex flex-column gap-3 col-12 col-md-7">
                 <div class="box-list">
                     <p class="fw-semibold m-0">Ordine effettuato il {{$order->created_at->format('d/m/Y')}} alle ore {{$order->created_at->format('H:i')}}</p>                
                 </div>
@@ -28,13 +28,10 @@
                             @endphp
                             <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex justify-content-start align-items-center gap-2">
-                                    <div class="circle">
-                                        {{ $quantity }}
-                                    </div>
-                                    {{$dish->name}}
+                                    {{$dish->name}} x {{$quantity}}
                                 </div>
-                                <div class="fw-light">
-                                    € {{ number_format($dish->price, 2) }} x {{$quantity}} = {{ number_format($total, 2) }}
+                                <div class="fw-light text-nowrap">
+                                    € {{ number_format($total, 2) }}
                                 </div>
                             </li>
                         @endforeach
@@ -47,7 +44,7 @@
             </div>
 
             {{-- CUSTOMER --}}
-            <div class="box-list col-4">
+            <div class="box-list col-12 col-md-5">
                 <ul class="d-flex flex-column gap-2 ps-0 m-0">
                     <li>
                         <span class="fw-semibold">Cliente</span>

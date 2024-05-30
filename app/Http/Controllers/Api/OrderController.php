@@ -105,8 +105,8 @@ class OrderController extends Controller
 
 
 
-        Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
-        Mail::to($user->email)->send(new NewOrderAdmin($newOrder));
+        // Mail::to($newOrder->customer_email)->send(new NewOrder($newOrder));
+        // Mail::to($user->email)->send(new NewOrderAdmin($newOrder));
 
 
         // respond to the customer here

@@ -14,10 +14,10 @@
                 <thead>
                     <tr>
                     <th scope="col" class="text-center">Data</th>
-                    <th scope="col" class="text-center">Ora</th>
+                    <th scope="col" class="text-center d-none d-md-table-cell">Ora</th>
                     <th scope="col" class="text-center">Totale</th>
-                    <th scope="col" class="text-center">Cliente</th>
-                    <th scope="col" class="text-center"></th>
+                    <th scope="col" class="text-center  d-none d-md-table-cell">Cliente</th>
+                    <th scope="col" class="text-center "></th>
                     </tr>
                 </thead>
                 
@@ -25,11 +25,12 @@
                     @forelse ($orders as $order)
                         <tr class="align-middle dish">
 
+                            
                             <td class="text-center">
                                 {{$order->created_at->format('d/m/Y')}}
                             </td>
                             
-                            <td class="text-center">
+                            <td class="text-center d-none d-md-table-cell">
                                 {{$order->created_at->format('H:i')}}
                             </td>
     
@@ -37,7 +38,7 @@
                                 {{$order->total_price}} €
                             </td>
     
-                            <td class="text-center">
+                            <td class="text-center d-none d-md-table-cell">
                                 {{$order->customer_name}} {{$order->customer_lastname}}
                             </td>  
                             

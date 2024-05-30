@@ -21,9 +21,9 @@
                 <thead>
                     <tr>
                     <th scope="col">Piatto</th>
-                    <th scope="col" class="text-center">Prezzo</th>
-                    <th scope="col" class="text-center">Disponibilità</th>
-                    <th scope="col" class="text-center">Modifica Piatto</th>
+                    <th scope="col" class="text-center d-none d-md-table-cell">Prezzo</th>
+                    <th scope="col" class="text-center d-none d-md-table-cell">Disponibilità</th>
+                    <th scope="col" class="text-center text-nowrap">Modifica Piatto</th>
                     </tr>
                 </thead>
                 
@@ -34,11 +34,11 @@
                                 <a class="dish-name" href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
                             </td>
                             
-                            <td class="text-center">
+                            <td class="text-center d-none d-md-table-cell">
                                 € {{$dish->price}}
                             </td>
 
-                            <td class="text-center">
+                            <td class="text-center d-none d-md-table-cell">
                                 @if ($dish->viewable)
                                 <i class="fa-regular fa-circle-check text-success "></i>
                                 @else
