@@ -55,7 +55,7 @@
                                 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn1" data-bs-dismiss="modal">Annulla</button>
-                                    <form action="{{route('admin.dishes.destroy', $dish)}}" method="POST">
+                                    <form action="{{route('admin.dishes.destroy', $dish->id)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
                                         <button class="btn btn3">Elimina</button>

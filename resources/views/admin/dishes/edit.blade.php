@@ -11,7 +11,7 @@
         </div>
 
         {{-- form --}}
-        <form action="{{ route('admin.dishes.update', $dish) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -66,7 +66,7 @@
             <div class="d-flex justify-content-end gap-3 my-4">
             
                 {{-- go back to the dish page --}}
-                <a class="btn btn3" href="{{route('admin.dishes.show', $dish)}}">Annulla</a>
+                <a class="btn btn3" href="{{route('admin.dishes.show', $dish->id)}}">Annulla</a>
 
                 <button type="submit" class="btn btn2">Salva le modifiche</button>
             </div>
