@@ -8,8 +8,6 @@ use App\Http\Requests\StoreDishRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-use Illuminate\Support\Str;
-
 class DishController extends Controller
 {
     /**
@@ -56,10 +54,9 @@ class DishController extends Controller
 
         $newDish->restaurant_id = auth()->user()->restaurant->id;
         $newDish->viewable = $request->has('viewable');
-        $newDish->slug = Str::slug($request->name);
         $newDish->save();
 
-        return redirect()->route('admin.dishes.show', $newDish);
+        return redirect()->route('admin.dishes.show', $newDish->id);
     }
 
     /**
@@ -67,9 +64,9 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        // if ($dish->restaurant_id != auth()->user()->restaurant->id) {
-        //     abort(404);
-        // }
+        if ($dish->restaurant_id != auth()->user()->restaurant->id) {
+            abort(404);
+        }
 
         return view('admin.dishes.show', compact('dish'));
     }
@@ -79,9 +76,9 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        // if ($dish->restaurant_id != auth()->user()->restaurant->id) {
-        //     abort(404);
-        // }
+        if ($dish->restaurant_id != auth()->user()->restaurant->id) {
+            abort(404);
+        }
 
         return view('admin.dishes.edit', compact('dish'));
     }
@@ -103,8 +100,6 @@ class DishController extends Controller
         } else {
             $dish->fill($validated);
         }
-
-        $dish->slug = Str::slug($request->name);
 
         $dish->viewable = $request->has('viewable');
         $dish->save();
