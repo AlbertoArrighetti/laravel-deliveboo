@@ -6,8 +6,8 @@
         <div class="page-title">
             <h2 class="title">Ciao {{$user->name}}!</h2>
         </div>
-        <div class="rest-card d-flex flex-column flex-md-row">
-            <div class="rest-card_img w-auto">
+        <div class="rest-card">
+            <div class="rest-card_img">
                 <img src="{{'storage/' . $restaurant->image}}" alt="{{$restaurant->restaurant_name}}">
             </div>            
             <div class="rest-card_text ">
@@ -18,11 +18,11 @@
                     <p>P.IVA: {{$user->vat}}</p>
                     <div>Cucina:
                         @foreach ($restaurant->types as $type)
-                        <div class="badge rounded-pill text-bg-secondary bt-2 mb-3">{{$type->name}}</div>
+                        <div class="badge rounded-pill text-bg-secondary bt-2">{{$type->name}}</div>
                         @endforeach
                     </div>
                 </div>
-                <div class="rest-card_btn">
+                <div class="rest-card_btn mt-3">
                     <a href="{{route('admin.dishes.index')}}" class="btn btn1">Menù</a>
                     <a href="{{route('admin.orders.index')}}" class="btn btn1">Ordini</a>
                 </div>
